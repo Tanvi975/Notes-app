@@ -16,6 +16,7 @@ function useNotes() {
         const newNote = {
             id: Date.now(),
             title,
+            content: '',
             items: [],
         };
         setNotes([...notes, newNote]);
@@ -26,6 +27,14 @@ function useNotes() {
         setNotes(notes.map((n) => (n.id === id ? {...n, title } : n)));
     }
 
+    function updateContent(id, content) {
+        setNotes(
+            notes.map((n) =>
+                n.id === id ? {...n, content } : n
+            )
+        );
+    }
+
     function deleteNote(id) {
         setNotes(notes.filter((n) => n.id !== id));
     }
@@ -33,14 +42,13 @@ function useNotes() {
     function addTask(noteId, taskText) {
         setNotes(
             notes.map((n) =>
-                n.id === noteId ?
-                {...n, items: [...n.items, taskText] } :
+                n.id === noteId ? {...n, items: [...n.items, taskText] } :
                 n
             )
         );
     }
 
-    return { notes, addNote, updateNote, deleteNote, addTask };
+    return { notes, addNote, updateNote, deleteNote, addTask, updateContent };
 }
 
 export default useNotes;
