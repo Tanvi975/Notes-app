@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import './Notes.css';
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
 
 function Notes() {
   const [text, setText] = useState('');   
   const [list, setList] = useState([]);
   const [subText, setSubText] = useState('');   
   const [addingTo, setAddinng] = useState(null); 
+  const [content, setcontent] = useState('');
   function add() {
-    if (text.trim() === '') return;
-  
     const node1 = {
       id: Date.now(),
       title: text,
@@ -35,13 +36,12 @@ function Notes() {
   return (
    <div className='Box'>
     <h1>My Notes App</h1>
-    <input
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="write here"
-        className="input-box"
-      />
+    <ReactQuill 
+    theme="snow" 
+    value={text} 
+    onChange={setText} 
+    className="edit-box"
+     />
        <button onClick={add} className="add-button">
         Add Note
       </button>
@@ -49,7 +49,7 @@ function Notes() {
       <ul className="note-list">
         {list.map((note) => (
           <li key={note.id} className="note-item">
-            <strong>{note.title}</strong>
+           <div dangerouslySetInnerHTML={{ __html: note.title }} />
 
             <ul>
               {note.items.map((task, i) => (

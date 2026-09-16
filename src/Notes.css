@@ -4,7 +4,7 @@ body {
 
 .box {
     padding: 20px;
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -23,7 +23,7 @@ body {
     border-radius: 8px;
     border: none;
     background-color: #2c2929;
-    color: #fff;
+    color: white;
     cursor: pointer;
 }
 
@@ -36,17 +36,41 @@ body {
     margin-top: 20px;
     padding-left: 0;
     display: grid;
-    grid-template-columns: repeat(2, 250px);
+    grid-template-columns: repeat(2, 300px);
     gap: 25px;
     list-style: none;
     justify-content: center;
 }
 
 .note-item {
-    background-color: white;
+    background-color: rgb(253, 252, 252);
     color: rgb(21, 18, 18);
     padding: 6px;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(253, 252, 252);
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(18, 17, 17, 0.08);
+}
+
+.edit-box {
+    background-color: rgb(253, 252, 252);
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.note-item button {
+    cursor: pointer;
+    background: rgb(253, 252, 252);
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.note-item input {
+    padding: 4px 6px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid rgb(34, 33, 33);
+    margin-right: 4px;
 }
