@@ -33,8 +33,12 @@ function Notes() {
     setSubText('');
     setAddinng(null);
   }
+  function deleteNote(id) {
+    setList(list.filter((note) => note.id !== id));
+  }
+
   return (
-   <div className='Box'>
+   <div className='box'>
     <h1>My Notes App</h1>
     <ReactQuill 
     theme="snow" 
@@ -51,9 +55,13 @@ function Notes() {
           <li key={note.id} className="note-item">
            <div dangerouslySetInnerHTML={{ __html: note.title }} />
 
+           <button onClick={() => deleteNote(note.id) } className='delete'>
+             Delete Note
+           </button>
+
             <ul>
               {note.items.map((task, i) => (
-                <li key={i}>✓ {task}</li>
+                <li key={i}> {task}</li>
               ))}
             </ul>
 
@@ -76,6 +84,5 @@ function Notes() {
     </div>
   );
 }
-
 
 export default Notes;

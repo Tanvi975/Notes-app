@@ -1,4 +1,5 @@
 body {
+    margin: 0;
     background-color: rgb(206, 228, 237);
 }
 
@@ -7,6 +8,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     max-width: 600px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .input-box {
@@ -40,9 +42,11 @@ body {
     gap: 25px;
     list-style: none;
     justify-content: center;
+    width: 100%;
 }
 
 .note-item {
+    position: relative;
     background-color: rgb(253, 252, 252);
     color: rgb(21, 18, 18);
     padding: 6px;
@@ -73,4 +77,14 @@ body {
     border-radius: 4px;
     border: 1px solid rgb(34, 33, 33);
     margin-right: 4px;
+}
+
+.note-item {
+    position: relative;
+    background-color: rgb(253, 252, 252);
+    color: rgb(21, 18, 18);
+    padding: 30px 12px 12px 12px;
+    border: 1px solid rgb(253, 252, 252);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(18, 17, 17, 0.08);
 }
