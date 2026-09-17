@@ -1,5 +1,5 @@
 import { useState } from "react";
-function Sidebar({ notes, addNote, deleteNote, activeNote, setActiveNote }) {
+function Sidebar({ notes, addNote, deleteNote,updateNote, activeNote, setActiveNote }) {
 
     function add() {
         const title = prompt('Enter module name');
@@ -18,6 +18,13 @@ function Sidebar({ notes, addNote, deleteNote, activeNote, setActiveNote }) {
             setActiveNote(null);
         }
     }
+    function edit(e, id, title) {
+        e.stopPropagation();
+        const newTitle = prompt('Enter new module name', title);
+        if (newTitle) {
+            updateNote(id, newTitle);
+        }
+    }
 
     return (
         <aside className="sidebar">
@@ -34,12 +41,17 @@ function Sidebar({ notes, addNote, deleteNote, activeNote, setActiveNote }) {
                         key={note.id}
                         className={`module ${activeNote === note.id ? 'active' : ''}`}
                         onClick={() => setActiveNote(note.id)}
-                    >
+                    >   
                         <span>{note.title}</span>
+                        <div>
+                        <button onClick={(e) => edit(e, note.id, note.title)}>
+                           Edit
+                        </button>
 
                         <button onClick={(e) => del(e, note.id)}>
                             Delete
                         </button>
+                        </div>
                     </div>
                 ))}
 

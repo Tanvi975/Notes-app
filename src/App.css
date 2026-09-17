@@ -5,7 +5,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: white;
+    background: rgb(222, 236, 239);
 }
 
 .app {
@@ -17,7 +17,7 @@ body {
     width: 260px;
     min-height: 100vh;
     padding: 25px 18px;
-    background: white;
+    background: rgb(191, 224, 229);
     border-right: 1px solid white;
 }
 
@@ -54,18 +54,19 @@ body {
 
 .module {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 14px 15px;
-    background: white;
+    background: rgb(222, 236, 239);
     border: 1px solid white;
     border-radius: 12px;
     cursor: pointer;
     transition: 0.2s;
+    gap: 18px;
 }
 
 .module:hover {
-    background: white;
+    background: rgb(208, 227, 232);
 }
 
 .module.active {

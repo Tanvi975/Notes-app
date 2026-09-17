@@ -11,6 +11,7 @@ const [activeNote, setActiveNote] = useState(null);
        <Sidebar notes={notes}
         addNote={addNote} 
         deleteNote={deleteNote}
+        updateNote={updateNote}
         activeNote={activeNote}
         setActiveNote={setActiveNote}
         /> 
