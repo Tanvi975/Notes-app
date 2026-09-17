@@ -6,9 +6,18 @@ function useNotes() {
 
     useEffect(() => {
         const saved = localStorage.getItem('notes');
+
         if (saved) {
-            setNotes(JSON.parse(saved));
+            const savedNotes = JSON.parse(saved);
+
+            const fixedNotes = savedNotes.map((note) => ({
+                ...note,
+                items: note.items || []
+            }));
+
+            setNotes(fixedNotes);
         }
+
         setLoad(true);
     }, []);
 
@@ -25,33 +34,53 @@ function useNotes() {
             content: '',
             items: [],
         };
-        setNotes([...notes, newNote]);
+        setNotes((prevNotes) => [...prevNotes, newNote]);
         return newNote.id;
     }
 
+
     function updateNote(id, title) {
-        setNotes(notes.map((n) => (n.id === id ? {...n, title } : n)));
+        setNotes((prevNotes) =>
+            prevNotes.map((note) =>
+                note.id === id ? {...note, title } :
+                note)
+        );
     }
 
-    function updateContent(id, content) {
-        setNotes(
-            notes.map((n) =>
-                n.id === id ? {...n, content } : n
-            )
+    function updateContent(itemId, content) {
+        setNotes((prevNotes) =>
+            prevNotes.map((note) => ({
+                ...note,
+                items: (note.items || []).map((item) =>
+                    item.id === itemId ? {...item, content } :
+                    item
+                )
+            }))
         );
     }
 
     function deleteNote(id) {
-        setNotes(notes.filter((n) => n.id !== id));
+        setNotes((prevNotes) =>
+            prevNotes.filter((note) => note.id !== id)
+        );
     }
 
     function addTask(noteId, taskText) {
-        setNotes(
-            notes.map((n) =>
-                n.id === noteId ? {...n, items: [...n.items, taskText] } :
-                n
+        const item = {
+            id: Date.now(),
+            title: taskText,
+            content: ''
+        };
+
+        setNotes((prevNotes) =>
+            prevNotes.map((note) =>
+                note.id === noteId ? {
+                    ...note,
+                    items: [...(note.items || []), item]
+                } : note
             )
         );
+        return item.id;
     }
 
     return { notes, addNote, updateNote, deleteNote, addTask, updateContent };

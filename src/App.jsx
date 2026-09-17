@@ -6,6 +6,7 @@ import './App.css';
 
 function App() { const { notes, addNote, updateNote, deleteNote, addTask , updateContent} = useNotes(); 
 const [activeNote, setActiveNote] = useState(null);
+const [activeItem, setActiveItem] = useState(null);
   return (
     <div className="app">
        <Sidebar notes={notes}
@@ -14,12 +15,17 @@ const [activeNote, setActiveNote] = useState(null);
         updateNote={updateNote}
         activeNote={activeNote}
         setActiveNote={setActiveNote}
+        activeItem={activeItem}
+        setActiveItem={setActiveItem}
+        addTask={addTask}
         /> 
        <main className="workspace"> 
        <Notes
           notes={notes}
           activeNote={activeNote}
+          activeItem={activeItem}
           updateContent={updateContent}
+         
         />
        </main>
           </div>

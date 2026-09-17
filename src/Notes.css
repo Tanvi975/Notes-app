@@ -1,90 +1,29 @@
-body {
-    margin: 0;
-    background-color: rgb(206, 228, 237);
-}
-
 .box {
     padding: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.input-box {
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 6px;
-    border: 1px solid #040303;
-    margin-right: 8px;
-}
-
-.add-button {
-    padding: 8px 16px;
-    font-size: 14px;
-    border-radius: 8px;
-    border: none;
-    background-color: #2c2929;
-    color: white;
-    cursor: pointer;
-}
-
-.note-list {
-    margin-top: 20px;
-    padding-left: 0;
-}
-
-.note-list {
-    margin-top: 20px;
-    padding-left: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 300px);
-    gap: 25px;
-    list-style: none;
-    justify-content: center;
     width: 100%;
 }
 
-.note-item {
-    position: relative;
-    background-color: rgb(253, 252, 252);
-    color: rgb(21, 18, 18);
-    padding: 6px;
-    border: 1px solid rgb(253, 252, 252);
-    border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(18, 17, 17, 0.08);
+.box h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 26px;
 }
 
 .edit-box {
     background-color: rgb(253, 252, 252);
     border-radius: 8px;
-    margin-bottom: 12px;
 }
 
-.note-item button {
-    cursor: pointer;
-    background: rgb(253, 252, 252);
-    border: none;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    margin-top: 6px;
+.empty-editor {
+    text-align: center;
+    padding-top: 80px;
 }
 
-.note-item input {
-    padding: 4px 6px;
-    font-size: 12px;
-    border-radius: 4px;
-    border: 1px solid rgb(34, 33, 33);
-    margin-right: 4px;
+.empty-editor h2 {
+    margin-bottom: 10px;
 }
 
-.note-item {
-    position: relative;
-    background-color: rgb(253, 252, 252);
-    color: rgb(21, 18, 18);
-    padding: 30px 12px 12px 12px;
-    border: 1px solid rgb(253, 252, 252);
-    border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(18, 17, 17, 0.08);
+.empty-editor p {
+    color: rgb(100, 100, 100);
 }
